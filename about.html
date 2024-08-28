@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - JobConnect</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="index.html" class="logo">JobConnect</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="jobs.html">Jobs</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
+    </nav>
+
+    <main>
+        <h2>About Us</h2>
+        <p>JobConnect is a leading job portal dedicated to connecting job seekers with top employers. Our mission is to make the job search process as seamless and effective as possible for both candidates and companies. We offer a user-friendly platform where job seekers can easily search for jobs, submit resumes, and apply directly to open positions. Employers benefit from our extensive database of qualified candidates and powerful tools to manage the recruitment process.</p>
+        <p>Our team is passionate about helping people find their dream jobs and helping companies find the right talent to grow their businesses.</p>
+    </main>
+
+    <script>
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

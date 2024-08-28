@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Listings - JobConnect</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="index.html" class="logo">JobConnect</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
+    </nav>
+
+    <main>
+        <h2>Job Listings</h2>
+
+        <!-- Resume Upload Form -->
+        <h3>Upload Your Resume</h3>
+        <form id="resumeUploadForm" action="/api/uploadResume" method="POST" enctype="multipart/form-data">
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="resume">Upload Resume:</label>
+            <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx" required>
+
+            <button type="submit">Submit</button>
+        </form>
+
+        <div class="job-search">
+            <input type="text" id="searchInput" placeholder="Search for jobs..." onkeyup="filterJobs()">
+        </div>
+
+        <div class="job-listings" id="jobListings">
+            <!-- Existing job listings go here -->
+            <div class="job-card">
+                <h3>Software Engineer</h3>
+                <p>Location: New York, NY</p>
+                <p>Company: TechSolutions</p>
+                <a href="job-details.html" class="details-button">View Details</a>
+            </div>
+            <div class="job-card">
+                <h3>Data Analyst</h3>
+                <p>Location: San Francisco, CA</p>
+                <p>Company: DataCorp</p>
+                <a href="job-details.html" class="details-button">View Details</a>
+            </div>
+            <div class="job-card">
+                <h3>Full Stack java Developer</h3>
+                <p>Location: Eusten, BTech</p>
+                <p>Company: Texcus</p>
+                <a href="job-details.html" class="details-button">View Details</a>
+            </div>
+            <div class="job-card">
+                <h3>Full Stack web Developer</h3>
+                <p>Location: Benglour, BTech</p>
+                <p>Company: Texcus</p>
+                <a href="job-details.html" class="details-button">View Details</a>
+            </div>
+            <div class="job-card">
+                <h3>Full Stack web Developer</h3>
+                <p>Location: Benglour, BTech</p>
+                <p>Company: Google</p>
+                <a href="job-details.html" class="details-button">View Details</a>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('active');
+        }
+
+        function filterJobs() {
+            const input = document.getElementById('searchInput').value.toLowerCase();
+            const jobCards = document.querySelectorAll('.job-card');
+
+            jobCards.forEach(card => {
+                const title = card.querySelector('h3').textContent.toLowerCase();
+                if (title.includes(input)) {
+                    card.style.display = '';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
